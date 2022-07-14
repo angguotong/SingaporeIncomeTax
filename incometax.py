@@ -12,15 +12,10 @@ def incometax(income):
     income /= 1000
     taxableIncome = 0
     for i in range(len(incomeRange)):
-        print(income, taxableIncome)
-
         if income - incomeRange[i] <= 0: 
             taxableIncome += income * (taxRange[i]/100)
             return taxableIncome*1000
-
-
         elif income - incomeRange[i] > 0:
-            print (incomeRange[i],taxRange[i])
             taxableIncome += incomeRange[i] * (taxRange[i]/100) if incomeRange[i] - income < 0 else (income-incomeRange[i]) * (taxRange[i]/100)
             income = income - incomeRange[i]
     return taxableIncome*1000
